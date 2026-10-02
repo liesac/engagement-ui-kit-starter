@@ -1,0 +1,46 @@
+/**
+ * Semantic tokens: what the primitives are *for*.
+ *
+ * This layer is yours. It is the seam between the raw palette in
+ * `_primitives.scss` and the components that consume it, and it is what makes
+ * a second theme possible without touching component styles.
+ *
+ * Nothing here is prescribed: the roles you define, how you name them, and how
+ * a theme overrides them are part of what the exercise is asking you to design.
+ */
+
+// ==========================================
+// 1. Default Theme (Light Theme)
+// ==========================================
+:root {
+  --cw-sys-bg-page: var(--cw-gray-100);
+  --cw-sys-bg-surface: var(--cw-gray-0);
+  --cw-sys-bg-surface-hover: var(--cw-gray-100);
+  --cw-sys-bg-surface-active: var(--cw-blue-100);
+  --cw-sys-bg-disabled: var(--cw-gray-200);
+  --cw-sys-text-primary: var(--cw-gray-900);
+  --cw-sys-text-muted: var(--cw-gray-700);
+  --cw-sys-text-brand: var(--cw-blue-600);
+  --cw-sys-text-disabled: var(--cw-gray-700);
+  --cw-sys-border-default: var(--cw-gray-200);
+  --cw-sys-border-focus: var(--cw-blue-500);
+  --cw-sys-shadow-popup: var(--cw-shadow-md);
+}
+
+// ==========================================
+// 2. Second Theme Required (Dark Theme)
+// ==========================================
+[data-theme="dark"] {
+  --cw-sys-bg-page: var(--cw-gray-900);
+  --cw-sys-bg-surface: var(--cw-gray-800);
+  --cw-sys-bg-surface-hover: var(--cw-gray-700);
+  --cw-sys-bg-surface-active: var(--cw-blue-600); // El azul se intensifica en modo oscuro
+  --cw-sys-bg-disabled: var(--cw-gray-800);
+  --cw-sys-text-primary: var(--cw-gray-0);
+  --cw-sys-text-muted: var(--cw-gray-200);
+  --cw-sys-text-brand: var(--cw-blue-500);
+  --cw-sys-text-disabled: var(--cw-gray-700);
+  --cw-sys-border-default: var(--cw-gray-700);
+  --cw-sys-border-focus: var(--cw-blue-500);
+  --cw-sys-shadow-popup: 0 4px 6px -1px rgba(0, 0, 0, 0.5); // Sombra más densa para fondo oscuro
+}
