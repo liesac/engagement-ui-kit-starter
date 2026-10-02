@@ -21,24 +21,4 @@ export class StatusBadge {
   @Input() isSmall = false;
   @Input() isLarge = false;
   @Input() tooltip = '';
-
-  get cssClass(): string {
-    let css = 'badge';
-    if (this.isReady) {
-      css += ' badge-ready';
-    }
-    if (this.isProcessing) {
-      css += ' badge-processing';
-    }
-    if (this.isError) {
-      css += ' badge-error';
-    }
-    if (this.isSmall) {
-      css += ' badge-sm';
-    }
-    if (this.isLarge) {
-      css += ' badge-lg';
-    }
-    return css;
-  }
 }

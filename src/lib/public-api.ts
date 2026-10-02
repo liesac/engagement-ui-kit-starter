@@ -5,4 +5,6 @@
  * here. Consumers should never need to reach into a component folder directly.
  */
 
+export { ReviewerPickerComponent } from './reviewer-picker/reviewer-picker.component';
+export { ReviewerPickerOptionComponent } from './reviewer-picker/picker-option/reviewer-picker-option.component';
 export { StatusBadge } from './status-badge/status-badge';

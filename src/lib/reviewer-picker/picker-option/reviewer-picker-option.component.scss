@@ -1,0 +1,21 @@
+:host {
+  display: flex;
+  justify-content: space-between;
+
+  &:hover:not(.cw-disabled) {
+    background-color: var(--cw-sys-bg-surface-hover);
+  }
+
+  &.cw-active {
+    background-color: var(--cw-sys-bg-surface-hover);
+    color: var(--cw-sys-text-brand);
+    outline: 2px dashed var(--cw-sys-border-focus);
+    outline-offset: -4px;
+  }
+
+  &.cw-disabled {
+    color: var(--cw-sys-text-disabled);
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}

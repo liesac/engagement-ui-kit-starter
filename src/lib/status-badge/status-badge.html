@@ -1,4 +1,13 @@
-<div [class]="cssClass" [title]="tooltip">
-  <div class="dot"></div>
-  <div class="text" aria-hidden="true">{{ label }}</div>
+<div
+  class="cw-status-badge"
+  [class.cw-status-badge-ready]="isReady"
+  [class.cw-status-badge-processing]="isProcessing"
+  [class.cw-status-badge-error]="isError"
+  [class.cw-status-badge-sm]="isSmall"
+  [class.cw-status-badge-lg]="isLarge"  
+  [title]="tooltip">
+  <div
+    class="dot"
+    aria-hidden="true"></div>
+  <div class="text">{{ label }}</div>
 </div>

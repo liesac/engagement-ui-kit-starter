@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
-import { StatusBadge } from '../lib/public-api';
-import { CHANGE_GROUPS, ENGAGEMENTS, REVIEWERS } from './data/engagement-fixtures';
+import { ReviewerPickerComponent, ReviewerPickerOptionComponent, StatusBadge } from '../lib/public-api';
+import { CHANGE_GROUPS, ENGAGEMENTS, ReviewerOption, REVIEWERS } from './data/engagement-fixtures';
 
 /**
  * The workbench: a consumer of the kit in `src/lib`.
@@ -12,7 +12,12 @@ import { CHANGE_GROUPS, ENGAGEMENTS, REVIEWERS } from './data/engagement-fixture
  */
 @Component({
   selector: 'app-root',
-  imports: [ReactiveFormsModule, StatusBadge],
+  imports: [
+    ReactiveFormsModule,
+    ReviewerPickerComponent,
+    ReviewerPickerOptionComponent,
+    StatusBadge
+  ],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
@@ -22,5 +27,9 @@ export class App {
   protected readonly changeGroups = CHANGE_GROUPS;
 
   /** A form control for the reviewer filter, ready for a form-integrated control. */
-  protected readonly reviewerId = new FormControl<string | null>(null);
+  protected readonly reviewer = new FormControl<ReviewerOption | null>(null);
+
+  reviewersForm = new FormGroup({
+    reviewer: this.reviewer
+  });
 }

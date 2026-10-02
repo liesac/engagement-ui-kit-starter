@@ -1,0 +1,40 @@
+<div class="cw-picker-container" [class.cw-disabled]="isDisabled()">
+  <label
+    [id]="labelId"
+    class="cw-picker-label">
+    Reviewer Picker
+  </label>
+  
+  <button
+    type="button"
+    class="cw-picker-trigger"
+    [id]="triggerId"
+    [attr.aria-haspopup]="'listbox'"
+    [attr.aria-expanded]="isOpen()"
+    [attr.aria-labelledby]="labelId + ' ' + triggerId"
+    [attr.aria-controls]="listboxId"
+    [attr.aria-activedescendant]="activeOptionId()"
+    [disabled]="isDisabled()"
+    (click)="toggleDropdown()"
+    (blur)="markAsTouched()">    
+  
+    <span class="cw-trigger-text">
+      @if (valueSignal(); as selected) {
+        {{ selected.name }}
+      } @else {
+        Select a reviewer...
+      }
+    </span>    
+    <span class="cw-trigger-arrow" aria-hidden="true">▼</span>
+  </button>
+  @if (isOpen()) {
+    <ul
+      class="cw-picker-listbox"
+      [id]="listboxId"
+      role="listbox"
+      [attr.aria-labelledby]="labelId"
+      tabindex="-1">
+      <ng-content></ng-content>
+    </ul>
+  }
+</div>
